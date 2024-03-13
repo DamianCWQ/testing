@@ -1,53 +1,244 @@
 <!DOCTYPE html>
-<html lang = "en">
-    <head>
-        <meta charset = "utf-8" />
-        <meta name = "description" content = "Navigation bar">
-        <meta name = "keywords" content = "nav">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name = "author" content = "Jonathan Yeo Kuok Kai" />
-        <link rel = "stylesheet" type = "text/css" href = "style.css">
-        <title>Test run for nav bar</title>
-    </head>
+<html lang="en">
 
-    <body>
-        <!-- Navigation bar -->
-        <header class="header">
-            <!-- Logo -->
-            <img class="logo" src="Assignment Logo.png" alt="logo" width="70px" height="70px"/>
-            <!-- Hamburger icon -->
-            <input class="side-menu" type="checkbox" id="side-menu"/>
-            <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
-            <!-- Menu -->
-            <nav class="nav">
-                <ul class="menu">
-                    <li><a href="#">Activities</a></li>
-                    <li class="dropdown"><a href="#" class="dropbutton">Services</a>
-                        <div class="dropdowncontent">
-                            <a href="#">BIM Class</a>
-                            <a href="#">Charity Car Wash</a>
-                            <a href="#">Haircut and Trimming</a>
-                            <a href="#">Sewing and Alteration</a>
-                        </div> 
-                        
-                    </li>
-                    
-                    <li><a href="#">Enquiry</a></li>
-                    <li><a href="#">Volunteer</a></li>
-                </ul>
-            </nav>
-        </header>
-        <!-- Main content -->
-        <article>
-            <section id="hero">
-                <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis quas adipisci incidunt quo facilis repudiandae expedita illo accusantium, neque doloremque magnam dolor. Quaerat tenetur, magnam laudantium perspiciatis quos commodi quae.</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod fuga nostrum, aperiam, officia cum consequatur, ex in illum saepe explicabo reprehenderit ad dolorum corrupti iure neque hic. Quae, reprehenderit cum.</p>
-                <div class="button">
-                    <a href="#">Our Services</a>
-                    <a href="#">Contact Us</a>
-                </div>
-            </section>
-        </article>
-    </body>
+<head>
+	<title>Compu4Life</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body>
+	<header>
+		<nav class="navbar">
+			<div class="navdiv">
+				<a href="index.html"><img class="logo" src="images/logo.png" alt="logo"></a>
+				<ul class="nav-ul">
+					<li class="nav-item"><a href="potatopc.html" class="nav-link">About</a></li>
+					<li class="nav-item"><a href="products.html" class="nav-link">Products</a></li>
+					<li class="nav-item"><a href="events.html" class="nav-link">Events</a></li>
+					<li class="nav-item"><a href="feedback.html" class="nav-link">Feedback</a></li>
+					<li class="nav-item"><a href="faq.html" class="nav-link">Help</a></li>
+				</ul>
+
+				<div class="hamburger">
+					<span class="bar"></span>
+					<span class="bar"></span>
+					<span class="bar"></span>
+				</div>
+			</div>
+		</nav>
+
+		<script>
+			/* Referenced from: https://youtu.be/flItyHiDm7E?si=Z0pSvcWxSfqNjETE
+			
+			Allows hamburger menu to display navbar */
+			const hamburger = document.querySelector(".hamburger");
+			const navMenu = document.querySelector(".nav-ul");
+
+			/*Opens nav menu on click*/
+			hamburger.addEventListener("click", () => {
+				hamburger.classList.toggle("active");
+				navMenu.classList.toggle("active");
+			})
+
+			/*Closes nav menu when user scrolls*/
+			window.addEventListener('scroll', () => {
+				const hamburger = document.querySelector(".hamburger");
+				const navMenu = document.querySelector(".nav-ul");
+
+				if (hamburger.classList.contains('active')) {
+					hamburger.classList.remove('active');
+					navMenu.classList.remove('active');
+				}
+			});
+
+			/*Closes nav menu when link is clicked*/
+			document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
+				hamburger.classList.remove("active");
+				navMenu.classList.remove("active");
+			}))
+		</script>
+	</header>
+
+	<article>
+		<div class="parallax" id="top">
+			<div class="compu4life">
+				<span>Compu4Life</span>
+				<p><span id="slogan"></span></p>
+			</div>
+		</div>
+
+		<div class="visandmis">
+			<div id="mission">
+				<p>We strive to bridge the digital divide and empower people to enhance their lives through technology.
+					We are committed to providing reliable, budget-friendly solutions, backed by excellent service, to
+					ensure that no one is left behind in the digital revolution. </p>
+			</div>
+		</div>
+
+		<figure id="visionmission">
+			<img src="images/visionmission.png" class="home-visionmission" alt="vision and mission">
+		</figure>
+
+		<div class="visandmis">
+			<div id="vision">
+				<p>Be the leading force in making computers and technology solutions universally affordable, empowering
+					individuals, businesses, and communities to thrive in the digital era.</p>
+			</div>
+		</div>
+
+		<div class="youtube">
+			<h1>Acer Aspire 3 Review:</h1>
+			<!-- This code is taken from YouTube website itself, when we choose to share the video via embedding.-->
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/C-W-PeYKfZo?si=sV06eYWQUSKKPyXE"
+				title="YouTube video player"> </iframe>
+			<p id="caption"></p>
+		</div>
+
+		<div id="parallax2" class="opaque">
+			<p class="slogan2">Embrace the future with Compu4Life!</p>
+		</div>
+
+		<div class="buttons">
+
+			<div class="product">
+
+				<div class="left-product">
+					<p>Get to know more <strong>our products!</strong></p>
+					<a href="products.html" class="home-button">Check out our products!</a>
+				</div>
+
+				<figure>
+					<img src="images/computer.jpeg" class="home-product-img" alt="new product">
+				</figure>
+
+			</div>
+
+			<div class="aboutus">
+
+				<figure>
+					<img src="images/aboutus.jpg" class="home-aboutus-img" alt="about us">
+				</figure>
+
+				<div class="right">
+					<p class="right-aboutus"> Get to meet <strong>our team!</strong></p>
+					<a href="potatopc.html" class="home-button" id="aboutusButton">Check out our team!</a>
+				</div>
+
+			</div>
+
+			<div class="events">
+
+				<div class="left-events">
+					<p>Get to know more <strong> the events going on!</strong></p>
+					<a href="events.html" class="home-button">Check out our events!</a>
+				</div>
+
+				<figure>
+					<img src="images/events.jpg" class="home-events-img" alt="events">
+				</figure>
+
+			</div>
+
+		</div>
+
+		<p class="disclaimerTitle">Disclaimer:</p>
+		<p class="disclaimer"> This website is created for education and non-commercial use
+			only. It is an assignment for completion of unit, FST10011 Web Technologies
+			for Foundation course from Swinburne University of Technology Sarawak
+			Campus.</p>
+
+		<p class="backTop"><a href="#top" class="home-button">Back to top</a></p>
+	</article>
+
+	<footer>
+		<div class="footerdiv">
+			<div class="socialicons">
+				<a href="https://www.facebook.com" target="_blank"><img src="images/facebook.png" alt="facebook"></a>
+				<a href="https://www.twitter.com" target="_blank"><img src="images/twitter.png" alt="twitter"></a>
+				<a href="https://www.instagram.com" target="_blank"><img src="images/instagram.png" alt="instagram"></a>
+				<a href="https://www.youtube.com" target="_blank"><img src="images/youtube.png" alt="youtube"></a>
+				<a href="https://www.linkedin.com" target="_blank"><img src="images/linkedin.png" alt="linkedin"></a>
+			</div>
+
+			<div class="footerbottom">
+				<p>&copy;<a href="potatopc.html" class="designer">Potato PC</a>| Last updated: 12/12/2023</p>
+			</div>
+		</div>
+	</footer>
+
+	<script>
+		// This information is taken from: https://www.w3schools.com/howto/howto_js_typewriter.asp
+
+		//Typewriter effect for the slogan
+		var i = 0;
+		var txt1 = 'Encouraging Originality, Unwavering Excellence';
+		var speed = 50; /* The speed/duration of the effect in milliseconds */
+
+		function typeWriter() {
+			if (i < txt1.length) {
+				document.getElementById("slogan").innerHTML += txt1.charAt(i);
+				i++;
+				setTimeout(typeWriter, speed);
+			}
+		}
+
+		setTimeout(typeWriter, 2000);
+
+		//This information is taken from: https://coolcssanimation.com/how-to-trigger-a-css-animation-on-scroll/
+
+		// Get the element to animate
+		const observer = new IntersectionObserver(entries => {
+			// Loop over the entries
+			entries.forEach(entry => {
+				// If the element is visible
+				if (entry.isIntersecting) {
+					// Add the animation class
+					entry.target.classList.add('animation');
+				}
+			});
+		});
+
+
+		const elements = document.querySelectorAll('.visandmis, .buttons');
+
+		elements.forEach(element => {
+			observer.observe(element);
+		});
+
+		var j = 0;
+		var txt2 = "Let's see what TechReflex has to say about the student-suited laptop --- Acer Aspire 3!";
+		var speed = 50; /* The speed/duration of the effect in milliseconds */
+
+		function typeWriter2() {
+			if (j < txt2.length) {
+				document.getElementById("caption").innerHTML += txt2.charAt(j);
+				j++;
+				setTimeout(typeWriter2, speed);
+			}
+		}
+
+		setTimeout(typeWriter2, 2000);
+
+		// Create an observer instance
+		const observer2 = new IntersectionObserver((entries, observer) => {
+			entries.forEach(entry => {
+				// If the element is in the viewport, start the typewriter effect
+				if (entry.isIntersecting) {
+					typeWriter2();
+					// Stop observing the element after the typewriter effect has started
+					observer2.unobserve(entry.target);
+				}
+			});
+		}, { threshold: 1.0 }); // Trigger when the element is fully in the viewport
+
+		// Start observing the element with id "caption"
+		observer2.observe(document.getElementById("caption"));
+
+
+	</script>
+</body>
+
 </html>
